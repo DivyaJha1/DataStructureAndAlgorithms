@@ -1,35 +1,22 @@
-package LinkedList;
+package Stacks;
+
+import java.util.Stack;
 
 public class reverse {
-    /*
-
-    Following is the Node class already written for the Linked List
-
-    class Node<T> {
-        T data;
-        Node<T> next;
-
-        public Node(T data) {
-            this.data = data;
+    public static void reverseStack(Stack<Integer> input, Stack<Integer> extra) {
+        //Your code goes here
+        if(input.isEmpty()){
+            return;
         }
+        int a=input.pop();
+        reverseStack(input, extra);
+        while(!input.isEmpty()){
+            extra.push(input.pop());
+        }
+        input.push(a);
+        while(!extra.isEmpty()){
+            input.push(extra.pop());
+        }
+
     }
-
-*/
-
-        public static Node<Integer> reverseRec(Node<Integer> head) {
-            //Your code goes here
-            if(head==null || head.next==null){
-                return head;
-            }
-
-            Node<Integer> l=reverseRec(head.next);
-            head.next.next=head;
-            head.next=null;
-
-
-
-            return l;
-        }
-
-
 }
