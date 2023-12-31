@@ -1,17 +1,16 @@
-package BST;
+package LinkedList;
 
 public class search {
-    public static boolean searchInBST(BinaryTreeNode<Integer> root, int k) {
-        if(root==null){
-            return false;
+    public static int findNode(Node<Integer> head, int n) {
+        // Write your code here.
+        int count =-1;
+        while(head!=null){
+            count++;
+            if(head.data==n){
+                return count;
+            }
+            head=head.next;
         }
-        if(root.data==k){
-            return true;
-        }
-        if(root.data>k){
-            return searchInBST(root.left, k);
-        }
-        return searchInBST(root.right, k);
-
+        return -1;
     }
 }
